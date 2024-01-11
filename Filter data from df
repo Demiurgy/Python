@@ -1,0 +1,10 @@
+def get_data_subset(df, begin_date, end_date, user_ids=None, columns=None):
+    if begin_date:
+        df = df[df['date'] >= begin_date]
+    if end_date:
+        df = df[df['date'] < end_date]
+    if user_ids:
+        df = df[df['user_id'].isin(user_ids)]
+    if columns:
+        df = df[columns]
+    return df.copy()
